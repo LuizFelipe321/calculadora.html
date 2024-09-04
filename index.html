@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Rústica</title>
+</head>
+<link rel="stylesheet" href="IMC.html"
+<body>
+    <h1>Calculadora</h1>
+    <input type="text" id="numero1" placeholder="Digite o 1° número">
+    <input type="text" id="numero2" placeholder="Digite o 2° número">
+    <br>
+    <select id="operacao">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <br>
+    <button onclick="calcular()">Calcular</button>
+    <br><br>
+    <input type="text" id="resultado" placeholder="Resultado" readonly>
+
+    <script>
+        function calcular() {
+            var n1 = parseFloat(document.getElementById('numero1').value);
+            var n2 = parseFloat(document.getElementById('numero2').value);
+            var operacao = document.getElementById('operacao').value;  
+            var resultado;
+
+            if (isNaN(n1) || isNaN(n2)) {
+                alert('Por favor, insira números válidos.');
+                return;
+            }
+
+            switch (operacao) {
+                case '+':
+                    resultado = n1 + n2;
+                    break;
+                case '-':
+                    resultado = n1 - n2;
+                    break;
+                case '*':
+                    resultado = n1 * n2;
+                    break;
+                case '/':
+                    if (n2 === 0) {
+                        alert('Divisão por zero não é permitida.');
+                        return;
+                    }
+                    resultado = n1 / n2;
+                    break;
+                default:
+                    alert('Operação inválida.');
+                    return;
+            }
+            
+            document.getElementById('resultado').value = resultado;
+        }
+
+    </script>
+     <h1>Se interessou?</h1>
+     <a href="IMC.html" target="_blank">Clique aqui para saber mais</a>
+</body>
+</html>
